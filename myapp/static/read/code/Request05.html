@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container campaign_ad" id="container" name="container" >
+             <div>
+                <h3>이메일 캠페인 만들기</h3>
+            </div>
+
+            <div class="top_wrap">
+                <a class="top_btn btn01" href="javascript:;">
+                    <div class="top_lay ">
+                        <div class="circle cir01 left"><span>01</span></div>
+                        <span class="subject">캠페인 명칭 및 유형지정</span>
+                    </div>
+                </a>
+                <a class="top_btn btn02" href="javascript:;">
+                    <div class="top_lay ">
+                        <div class="circle cir02 left"><span>02</span></div>
+                        <span class="subject">캠페인 대상 그룹지정</span>
+                    </div>
+                </a>
+                <a class="top_btn btn03" href="javascript:;">
+                    <div class="top_lay ">
+                        <div class="circle cir03 left"><span>03</span></div>
+                        <span class="subject">탬플릿 선택/편집</span>
+                    </div>
+                </a>
+                <a class="top_btn btn04" href="javascript:;">
+                    <div class="top_lay ">
+                        <div class="circle cir04 left"><span>04</span></div>
+                        <span class="subject">발송 전 최종점검</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="main">
+                <div class="title">
+                    <h3 class="left">
+                        이메일 발송 전 점검<span class="txt_small"> (고객님께서 작성하신 이메일 내용을 발송하기전에 다시 한번체크하세요.)</span>
+                    </h3>
+                </div>
+                <div class="bbsinsert">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th width="130px" class="title"> <span class="ico">○</span> 발송시간 설정</th>
+                                <th width="" class="cont" colspan="3">
+                                    
+                                        <input class="calender" type="date"  name="" value="">
+                                        <img class="calender_ico" src="./img/calender_ico.png" alt="달력 아이콘">  
+                                    
+                                         <select class="time hour">
+                                            <option value="">00시</option>
+                                        </select>  
+                                        <select class="time minutes">
+                                            <option value="">00분</option>
+                                        </select>
+                                    
+                                        <a class="checkbox" href="javscript:;" >✓</a>
+                                        <span class="checkbox_txt">즉시발송</span>
+                                </th>
+                                <th>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td class="title">
+                                    <span>이메일 제목</span>
+                                </td>
+                                <td class="cont" colspan="3">
+                                    <input class="big_input" class="title" type="text" name="" value="" placeholder="발신자 상호(이름)">
+                                </td>
+                                
+                            </tr>
+                            <tr>
+                                <td class="title" width="">
+                                    <span>수신자 목록</span>
+                                </td>
+                                <td class="cont" width="">
+                                    <a class="btn" href="#" target="_blank"><span class="txt_white">변경하기</span></a>
+                                </td>
+                                <td class="title" rowspan="8" width="">
+                                    사용자 템플릿
+                                </td>
+                                <td class="cont" rowspan="8">
+                                    <div class="thumbnail">
+                                        <img class="temp_img" src="./img/temp01.png" alt="탬플릿 콘텐츠">
+                                        <h5>탬플릿을 이용한 디자인<br> N&amp;ACD</h5>
+                                    </div>
+                                    <a class="cont_view" href="#" target="_blank">
+                                        <span class=" txt_org">내용 미리 보기</span>
+                                    </a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="title">
+                                    <span>캠페인 이름</span>
+                                </td>
+                                <td class="cont">
+                                    <input class="title" type="text" name="" value="" placeholder="캠페인 목록 등 내부관리에 사용하실 명칭을 지정합니다.">
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="title">
+                                    <span>발신자 이름</span>
+                                </td>
+                                <td class="cont">
+                                    <input class="title" type="text" name="" value="" placeholder="홍길동">
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="title">
+                                    <span>스팸 필터</span>
+                                </td>
+                                <td class="cont">
+                                    <a class="btn" href="#" target="_blank"><span class="txt_white">스팸 테스트</span></a>
+                                    <span class="txt_gray txt_small">테스트 결과 : 테스트 기록이 없습니다.</span>
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="title">
+                                    <span>테스트 이메일 보내기</span>
+                                </td>
+                                <td class="cont">
+                                    <input class="title email" type="text" name="" value="" placeholder="이메일 주소 입력">
+                                    <a class="btn email_btn" href="#" target="_blank"><span class="txt_white">테스트 이메일 보내기</span></a>
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="title">
+                                    <span>타입</span>
+                                </td>
+                                <td class="cont">
+                                    
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="title">
+                                    <span>메모</span>
+                                </td>
+                                <td class="cont">
+                                    <input class="title" type="text" name="" value="" placeholder="캠페인에 대한 특징을 간략하게 메모 합니다. (선택입력)">
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="title">
+                                    <span>발신자 메일주소</span>
+                                </td>
+                                <td class="cont">
+                                    <input class="title" type="text" name="" value="" placeholder="ynchol1010@naver.com">
+                                </td>
+                                <td></td>
+                            </tr>
+
+                        </thead>
+                    </table>   
+                    <div class="btn_wrap">
+                        <a class="btn_gray" href="javascript:;"><span class="txt_white">취소</span></a>
+                        <a class="btn_org" href="javascript:;"><span class="txt_white">작업 임시 보관</span></a>
+                        <a class="btn_brown" href="javascript:;"><span class="txt_white">저장</span></a>
+                    
+                        <div class="right move_box">
+                            <a class="btn_white" href="javascript:;"><span class="txt_black">＜ 이전</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+
+        </div>
+    </body>
+</html>

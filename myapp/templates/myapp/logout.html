@@ -1,0 +1,243 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <title>Any Travel </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Font Awesome icons (free version)-->
+    <script src="{% static 'https://use.fontawesome.com/releases/v5.13.0/js/all.js' %}" crossorigin="anonymous"></script>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />  
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+
+        <link href="{% static 'myapp/index' %}" rel="stylesheet">
+    
+        <link rel="stylesheet" href="{% static 'notary-master/fonts/icomoon/style.css' %}">
+    
+        <link rel="stylesheet" href="{% static 'notary-master/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'notary-master/css/bootstrap-datepicker.css' %}">
+        <link rel="stylesheet" href="{% static 'notary-master/css/jquery.fancybox.min.css' %}">
+        <link rel="stylesheet" href="{% static 'notary-master/css/owl.carousel.min.css' %}">
+        <link rel="stylesheet" href="{% static 'notary-master/css/owl.theme.default.min.css' %}">
+        <link rel="stylesheet" href="{% static 'notary-master/fonts/flaticon/font/flaticon.css' %}">
+        <link rel="stylesheet" href="{% static 'notary-master/css/aos.css' %}">
+    
+        <!-- MAIN CSS -->
+        <link rel="stylesheet" href="{% static 'notary-master/css/style.css' %}">
+
+
+
+    </head>
+
+  <body>
+
+    
+    <div class="site-wrap" id="home-section">
+
+      <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+          <div class="site-mobile-menu-close mt-3">
+            <span class="icon-close2 js-menu-toggle"></span>
+          </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+      </div>
+
+        <!-- Navigation-->
+        <nav style="background-color: #212529; padding-top: 1rem; padding-bottom: 1rem;"class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+          <div class="container">
+              <!-- <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="{% static 'assets/img/navbar-logo.svg' %}" alt="" /></a>  -->
+              <a class="navbar-brand js-scroll-trigger" href="{% url 'index' %}"><p>Any Travel</p></a> 
+              <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                  Menu
+                  <i class="fas fa-bars ml-1"></i>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarResponsive">
+                  <ul class="navbar-nav text-uppercase ml-auto">
+                      <li class="nav-item"><a class="nav-link js-scroll-trigger" href="http://127.0.0.1:8000/#services">소개</a></li>
+                      <li class="nav-item"><a class="nav-link js-scroll-trigger" href="http://127.0.0.1:8000/#portfolio">축제</a></li>
+                      <li class="nav-item"><a class="nav-link js-scroll-trigger" href="http://127.0.0.1:8000/#about">관광명소</a></li>
+                      <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>  -->
+                      <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>    -->
+                      <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'read' %}">자유게시판</a></li>
+                      <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'login' %}">로그인</a></li>
+                      
+                  </ul>
+              </div>
+          </div>
+      </nav>      
+
+      <!-- <header class="site-navbar site-navbar-target" role="banner">
+
+        <div class="container">
+          <div class="row align-items-center position-relative">
+
+            <div class="col">
+              <div class="site-logo">
+                <a href="{% url 'index' %}"><strong>Any Travel</strong></a>
+              </div>
+            </div>
+
+            <div class="col-9 text-right text-lg-left">
+              
+              <span class="d-inline-block d-lg-none"><a href="#" class=" site-menu-toggle js-menu-toggle py-5 "><span class="icon-menu h3 text-black"></span></a></span>
+
+              <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
+                <ul class="site-menu main-menu js-clone-nav ml-auto ">
+                  <li class="active"><a href="{% url 'signup' %}" class="nav-link">회원가입</a></li>
+                  <li><a href="about.html" class="nav-link">비밀번호 변경</a></li>
+                </ul>
+              </nav>
+            </div>
+
+            
+          </div>
+        </div>
+
+      </header> -->
+
+      
+    <div class="hero overlay" style="background-image: url({% static 'notary-master/images/korea.jpg' %});">
+        
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-12">
+
+                    <div class="row align-items-center justify-content-between">
+
+                <p style="font-family:'Black And White Picture', sans-serif; font-size :50px;">로그아웃 되셨습니다</p> <br>
+                    </div>
+                </div>
+            </div>
+              
+              
+        </div>
+    </div>
+    </div>
+    </div>
+  
+
+
+
+      </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- <footer class="site-footer" style="background-image: url('images/hero_bg_footer.jpg')">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3">
+              <h2 class="footer-heading mb-4">About Us</h2>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+              <ul class="list-unstyled social">
+                <li><a href="#"><span class="icon-facebook"></span></a></li>
+                <li><a href="#"><span class="icon-instagram"></span></a></li>
+                <li><a href="#"><span class="icon-twitter"></span></a></li>
+                <li><a href="#"><span class="icon-linkedin"></span></a></li>
+              </ul>
+            </div>
+            <div class="col-lg-8 ml-auto">
+              <div class="row">
+                <div class="col-lg-3">
+                  <h2 class="footer-heading mb-4">Quick Links</h2>
+                  <ul class="list-unstyled">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                  </ul>
+                </div>
+                <div class="col-lg-3">
+                  <h2 class="footer-heading mb-4">Resources</h2>
+                  <ul class="list-unstyled">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                  </ul>
+                </div>
+                <div class="col-lg-3">
+                  <h2 class="footer-heading mb-4">Support</h2>
+                  <ul class="list-unstyled">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                  </ul>
+                </div>
+                <div class="col-lg-3">
+                  <h2 class="footer-heading mb-4">Company</h2>
+                  <ul class="list-unstyled">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-5 mt-5 text-center">
+            <div class="col-md-12">
+              <div class="border-top pt-5">
+                <p>
+
+              Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+  
+              </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </footer> -->
+
+    </div>
+
+    <script src="{% static 'js/jquery-3.3.1.min.  js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.sticky.js' %}"></script>
+    <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
+    <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+    <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+    <script src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>
+    <script src="{% static 'js/aos.js' %}"></script>
+
+    <script src="{% static 'js/main.js' %}"></script>
+
+  </body>
+
+</html>
+
+
+
+
+
+
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">    
+        <title> KNUT(W Team) - Any Travel</title>
+        <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&display=swap" rel="stylesheet">
+    </head>
+

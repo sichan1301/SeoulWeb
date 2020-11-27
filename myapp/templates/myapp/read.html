@@ -1,0 +1,168 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <!-- Font Awesome icons (free version)-->
+        <script src="{% static 'https://use.fontawesome.com/releases/v5.13.0/js/all.js' %}" crossorigin="anonymous"></script>
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />  
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+        <link href="{% static 'read/code/css/style.css' %}" rel="stylesheet"/>
+    </head>
+    <body>  
+        <!-- Navigation-->
+        <nav style="background-color: #212529;  padding-top: 1rem; padding-bottom: 1rem;" class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <!-- <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="{% static 'assets/img/navbar-logo.svg' %}" alt="" /></a>  -->
+                <a class="navbar-brand js-scroll-trigger" href="{% url 'index' %}"><p>Any Travel</p></a> 
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ml-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ml-auto">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="http://127.0.0.1:8000/#services">소개</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="http://127.0.0.1:8000/#portfolio">축제</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="http://127.0.0.1:8000/#about">관광명소</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>  -->
+                        <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>    -->
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'read' %}">자유게시판</a></li>
+                        {% if user.is_active %}
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">로그아웃</a></li>
+                        {% else %}
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'login' %}">로그인</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>     
+
+        
+        {% if user.is_active %}
+        <div style="padding-top:10%" class="container managergrounp" id="container" name="container" >
+            <h3>자유게시판 <span class="txt_small">(자유롭게 작성해주세요.)</span> </h3>
+            <hr>
+            <a class="btn" href="{% url 'create' %}"> 글쓰기</a>
+            <!-- <a class="btn" href="#" target="_blank">삭제 <span class="btn_txt_small">▶</span></a>
+            <a class="btn" href="#" target="_blank">업로드 <span class="btn_txt_small">▶</span></a> -->
+
+
+
+            <table class="bbsList" summary="자유게시판 (자유롭게 작성해주세요.)">          
+                <thead class="head">
+                    <tr>
+                        <th><a class="checkbox" href="" ></a></th> 
+                        <th>번호</th>
+                        <th>제목</th>   
+                        <th>내용</th>
+                        <th>등록일</th>
+                        <th>수정</th> 
+                    </tr>    
+                </thead>
+
+                <tbody class="body">
+                    {% for blog in posts%}
+                    <tr>
+                        <td class=""><a class="checkbox_checked" href="{% static 'javascript:' %};" >✓</a></td>
+                        <td class="">
+                            {% for blog in item_list %}
+                            {{ forloop.counter }}
+                        {% endfor %}</td>
+                        <td class=""><a href="{% url 'detail' blog.id %}">{{blog.title}}</a></td>
+                        <td class="">{{blog.summary}} <a style="font-size:2px;" href="{% url 'detail' blog.id %}">...더보기</a> </td>
+                        <td class="">{{blog.pub_date}}</td>
+                        <td class=""><a href="{% url 'update' blog.id %}">수정</a> /  <a href="{% url 'delete' blog.id %}">삭제</a></td>
+                        {% endfor %}
+                    </tr>
+                    </tr>
+                </tbody>
+            </table>
+            <tr>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center" style="font-size: larger;">
+                    {% if posts.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page=1">First </a></li>
+                    <li class="page-item"><a class="page-link" href="?page={{posts.previous_page_number}}">Previous </a></li>
+                    {% endif %}
+                    <li class="page-item"><span class="page-link" style="color: black;">{{posts.number}} of {{posts.paginator.num_pages}}</span></li>
+                    {% if posts.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{posts.next_page_number}}">Next </a></li>
+                    <li class="page-item"><a class="page-link" href="?page={{posts.paginator.num_pages}}">Last</a></li>
+                    {% endif %}
+                    </li>
+                </ul>
+            </tr>  
+            </nav>
+            <!-- <div class="btn_wrap">
+                <a class="btn_org" href="javascript:;"><span class="txt_white">수신자 그룹 등록</span></a>
+            </div> -->        
+        </div>
+        
+
+        {% else %}
+        <br><br><br><br><br><br>
+        <p style=" font-size:50px; padding-top:15%; text-align:center;"><a href="{% url 'login' %}">로그인 후 이용해주세요</a></p>
+        {% endif %}
+    </body>
+
+</html>
+
+
+
+
+
+
+<!-- {% load static %}
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>KNUT(W Team) - Any Travel</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container" style="background-color: rgb(234, 248, 202); width: 70em;">
+    {% for blog in posts%}
+    <ul style="padding-top:10px;" class="list-group list-group-horizontal">
+        <li class="list-group-item w-50">{{blog.title}}</li>
+        <li class="list-group-item w-100">{{blog.body}}</li>
+    </ul>
+    <br>
+    {% endfor %}
+    <!-- <div style="text-align: center;"> 
+        <div class="card" style="width: 30rem;">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text"></p>
+            </div>
+        </div>
+    </div> ------------------여기도 주석
+
+<p style="text-align:right"><a href="{% url 'create' %}">게시글 쓰러가기</a></p><br><br><br><br><br><br><br><br>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center" style="font-size: larger;">
+            {% if posts.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page=1">First </a></li>
+            <li class="page-item"><a class="page-link" href="?page={{posts.previous_page_number}}">Previous </a></li>
+            {% endif %}
+            <li class="page-item"><span class="page-link" style="color: black;">{{posts.number}} of {{posts.paginator.num_pages}}</span></li>
+            {% if posts.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{posts.next_page_number}}">Next </a></li>
+            <li class="page-item"><a class="page-link" href="?page={{posts.paginator.num_pages}}">Last</a></li>
+            {% endif %}
+            </li>
+        </ul>
+    </nav>
+</div>
+</body>
+</html> -->

@@ -1,0 +1,636 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Any Travel </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&display=swap" rel="stylesheet">
+    <!-- Font Awesome icons (free version)-->
+    <script src="{% static 'https://use.fontawesome.com/releases/v5.13.0/js/all.js' %}" crossorigin="anonymous"></script>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />  
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' rel="stylesheet" id="bootstrap-css">
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+</head>
+<body>
+        <!-- Navigation-->
+        <nav style="background-color: #7791ac; padding-top: 1rem; padding-bottom: 1rem;"class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <!-- <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="{% static 'assets/img/navbar-logo.svg' %}" alt="" /></a>  -->
+                <a class="navbar-brand js-scroll-trigger" href="{% url 'index' %}"><p>Any Travel</p></a> 
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ml-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ml-auto">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="http://127.0.0.1:8000/#services">소개</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="http://127.0.0.1:8000/#portfolio">축제</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="http://127.0.0.1:8000/#about">관광명소</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>  -->
+                        <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>    -->
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'read' %}">자유게시판</a></li>  
+                        {% if user.is_active %}
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">로그아웃</a></li>
+                        {% else %}
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'login' %}">로그인</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>      
+
+
+
+
+
+<section style="background-color: rgb(234, 245, 190);" class="page-section bg-light" id="portfolio">
+    <div class="container">
+        <div class="text-center">
+            <p style="font-family: 'Black And White Picture', sans-serif; font-size :50px; font-size:100px; margin-bottom:-70px;" class="section-heading text-uppercase">실시간 지하철 정보</p>
+        </div>
+        <br><br><br><br><br><br>
+        <div class="row">
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">서울역 실시간 정보</div>
+                        <div class="portfolio-caption-subheading text-muted">4호선과 공항철도</div>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">고속터미널역 실시간 정보</div>
+                        <div class="portfolio-caption-subheading text-muted">7호선과 9호선</div>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">                    
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">용산역 실시간 지하철 정보 </div>
+                        <div class="portfolio-caption-subheading text-muted">1호선과 경의중앙선</div>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">수서역 실시간 지하철 정보</div>
+                        <div class="portfolio-caption-subheading text-muted">3호선과 수인분당선</div>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">강변역 실시간 지하철 정보</div>
+                        <div class="portfolio-caption-subheading text-muted">2호선</div>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">강남역 실시간 정보</div>
+                        <div class="portfolio-caption-subheading text-muted">2호선과 신분당선</div>
+                    </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- <div class="col-lg-4 col-sm-6">
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'assets/img/portfolio/06-thumbnail.jpg' %}" alt="" />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading" style="margin-top:5%">크리스마스 축제</div>
+                        <div class="portfolio-caption-subheading text-muted">서울 청계광장</div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</section>
+
+
+<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal"><img src="{% static 'assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here-->
+                            <h2 class="text-uppercase">서울역</h2>
+                            <p class="item-intro text-muted">서울특별시 용산구 한강대로 405 서울역</p>
+                                <title>테이블 스타일</title>
+                                <style>
+                                  .table {
+                                    border-collapse: collapse;
+                                    border-top: 3px solid rgb(66, 61, 70);
+                                  }  
+                                  .table th {
+                                    color: rgb(66, 61, 70);
+                                    background: #f0f6f9;
+                                    text-align: center;
+                                  }
+                                  .table th, .table td {
+                                    padding: 10px;
+                                    border: 1px solid #ddd;
+                                  }
+                                  .table th:first-child, .table td:first-child {
+                                    border-left: 0;
+                                  }
+                                  .table th:last-child, .table td:last-child {
+                                    border-right: 0;
+                                  }
+                                  .table tr td:first-child{
+                                    text-align: center;
+                                  }
+                                  .table caption{caption-side: bottom; display: none;}
+                                </style>
+                              
+                                <table class="table">
+                                  <caption>표 제목</caption>
+                                  <tr><th>출발지-도착방면</th><th>도착정보</th><th>비고</th></tr>
+                                  <tr><td>{{direction0_seoul}}</td><td>{{arrive0_seoul}}</td><td></td>
+                                  <tr><td>{{direction1_seoul}}</td><td>{{arrive1_seoul}}</td><td></td>
+                                  <tr><td>{{direction2_seoul}}</td><td>{{arrive2_seoul}}</td><td></td>
+                                  <tr><td>{{direction3_seoul}}</td><td>{{arrive3_seoul}}</td><td></td>
+                                  <tr><td>{{direction4_seoul}}</td><td>{{arrive4_seoul}}</td><td></td>
+                                  
+                                </table>    
+                            </p>
+
+                            <ul class="list-inline">
+                                <li>문의전화 : 02-6110-1331</li>
+                                <li>환승호선 : 1호선 4호선 경의중앙선 공항철도</li>
+                                <li>시청방향 첫차/막차 5:20 / 23:59  </li>
+                                <li>남영방향 첫차/막차 5:20 / 23:56  </li>
+                                <li>link : <a href="	https://map.naver.com/v5/entry/place/11630456" target="_blank">https://map.naver.com/v5/entry/place/11630456/</a></li>
+                            </ul>
+                            <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                <i class="fas fa-times mr-1"></i>
+                                닫기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal 2-->
+<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal"><img src="{% static 'assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here-->
+                            <h2 class="text-uppercase">고속터미널역</h2>
+                            <p class="item-intro text-muted">서울특별시 서초구 신반포로 188 </p>
+                                <title>고속터미널역 도착정보</title>
+                                <style>
+                                  .table {
+                                    border-collapse: collapse;
+                                    border-top: 3px solid rgb(66, 61, 70);
+                                  }  
+                                  .table th {
+                                    color: rgb(66, 61, 70);
+                                    background: #f0f6f9;
+                                    text-align: center;
+                                  }
+                                  .table th, .table td {
+                                    padding: 10px;
+                                    border: 1px solid #ddd;
+                                  }
+                                  .table th:first-child, .table td:first-child {
+                                    border-left: 0;
+                                  }
+                                  .table th:last-child, .table td:last-child {
+                                    border-right: 0;
+                                  }
+                                  .table tr td:first-child{
+                                    text-align: center;
+                                  }
+                                  .table caption{caption-side: bottom; display: none;}
+                                </style>
+                              
+                                <table class="table">
+                                  <caption>표 제목</caption>
+                                  <tr><th>출발지-도착방면</th><th>도착정보</th><th>비고</th></tr>
+                                  <tr><td>{{direction0_central}}</td><td>{{arrive0_central}}</td><td></td>
+                                  <tr><td>{{direction1_central}}</td><td>{{arrive1_central}}</td><td></td>
+                                  <tr><td>{{direction2_central}}</td><td>{{arrive2_central}}</td><td></td>
+                                  <tr><td>{{direction3_central}}</td><td>{{arrive3_central}}</td><td></td>
+                                  <tr><td>{{direction4_central}}</td><td>{{arrive4_central}}</td><td></td>
+                                    <br>
+                                </table>
+
+                            <ul class="list-inline">
+                                <li>문의전화 : 02-6110-3391</li>
+                                <li>환승호선 : 3호선 7호선 9호선 </li>
+                                <li>잠원방향 첫차/막차 5:35 / 23:54  </li>
+                                <li>교대방향 첫차/막차 5:36 / 23:53  </li>
+                                <li>link : <a href="https://map.naver.com/v5/search/%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90%EC%97%AD/subway-station" target="_blank">https://map.naver.com/v5/entry/place/</a></li>
+                            </ul>
+                            <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                <i class="fas fa-times mr-1"></i>
+                                닫기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal 3-->
+<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal"><img src="{% static 'assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here-->
+                            <h2 class="text-uppercase">용산역</h2>
+                            <p class="item-intro text-muted">서울특별시 용산구 한강대로23길 55</p>
+                                <title>용산역 도착정보</title>
+                                <style>
+                                  .table {
+                                    border-collapse: collapse;
+                                    border-top: 3px solid rgb(66, 61, 70);
+                                  }  
+                                  .table th {
+                                    color: rgb(66, 61, 70);
+                                    background: #f0f6f9;
+                                    text-align: center;
+                                  }
+                                  .table th, .table td {
+                                    padding: 10px;
+                                    border: 1px solid #ddd;
+                                  }
+                                  .table th:first-child, .table td:first-child {
+                                    border-left: 0;
+                                  }
+                                  .table th:last-child, .table td:last-child {
+                                    border-right: 0;
+                                  }
+                                  .table tr td:first-child{
+                                    text-align: center;
+                                  }
+                                  .table caption{caption-side: bottom; display: none;}
+                                </style>
+                              
+                                <table class="table">
+                                  <caption>표 제목</caption>
+                                  <tr><th>출발지-도착방면</th><th>도착정보</th><th>비고</th></tr>
+                                  <tr><td>{{direction0_yongsan}}</td><td>{{arrive0_yongsan}}</td><td></td>
+                                  <tr><td>{{direction1_yongsan}}</td><td>{{arrive1_yongsan}}</td><td></td>
+                                  <tr><td>{{direction2_yongsan}}</td><td>{{arrive2_yongsan}}</td><td></td>
+                                  <tr><td>{{direction3_yongsan}}</td><td>{{arrive3_yongsan}}</td><td></td>
+                                  <tr><td>{{direction4_yongsan}}</td><td>{{arrive4_yongsan}}</td><td></td>
+                                    <br>
+                                </table>
+
+                            <ul class="list-inline">
+                                <li>문의전화 : 1544-7788</li>
+                                <li>환승호선 : 1호선 경의중앙선 ITX </li>
+                                <li>남영방향 첫차/막차 5:14 / 23:53  </li>
+                                <li>동두천방향 첫차/막차 5:25 / 24:52  </li>
+                                <li>link : <a href="https://map.naver.com/v5/entry/place/21598318?c=14132704.9119309,4513322.2700407,16,0,0,0,dh" target="_blank">https://map.naver.com/v5/entry/place/</a></li>
+                            </ul>
+                            <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                <i class="fas fa-times mr-1"></i>
+                                닫기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal 4-->
+<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal"><img src="{% static 'assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here-->
+                            <h2 class="text-uppercase">수서역</h2>
+                            <p class="item-intro text-muted">서울특별시 강남구 밤고개로 99 수서역사</p>
+                                <title>수서역 도착정보</title>
+                                <style>
+                                  .table {
+                                    border-collapse: collapse;
+                                    border-top: 3px solid rgb(66, 61, 70);
+                                  }  
+                                  .table th {
+                                    color: rgb(66, 61, 70);
+                                    background: #f0f6f9;
+                                    text-align: center;
+                                  }
+                                  .table th, .table td {
+                                    padding: 10px;
+                                    border: 1px solid #ddd;
+                                  }
+                                  .table th:first-child, .table td:first-child {
+                                    border-left: 0;
+                                  }
+                                  .table th:last-child, .table td:last-child {
+                                    border-right: 0;
+                                  }
+                                  .table tr td:first-child{
+                                    text-align: center;
+                                  }
+                                  .table caption{caption-side: bottom; display: none;}
+                                </style>
+                              
+                                <table class="table">
+                                  <caption>표 제목</caption>
+                                  <tr><th>출발지-도착방면</th><th>도착정보</th><th>비고</th></tr>
+                                  <tr><td>{{direction0_sooseo}}</td><td>{{arrive0_sooseo}}</td><td></td>
+                                  <tr><td>{{direction1_sooseo}}</td><td>{{arrive1_sooseo}}</td><td></td>
+                                  <tr><td>{{direction2_sooseo}}</td><td>{{arrive2_sooseo}}</td><td></td>
+                                  <tr><td>{{direction3_sooseo}}</td><td>{{arrive3_sooseo}}</td><td></td>
+                                  <tr><td>{{direction4_sooseo}}</td><td>{{arrive4_sooseo}}</td><td></td>
+                                    <br>
+                                </table>
+
+                            <ul class="list-inline">
+                                <li>문의전화 : 1800-1472</li>
+                                <li>환승호선 : 3호선 수인분당선 SRT </li>
+                                <li>일원방향 첫차/막차 5:22 / 23:34  </li>
+                                <li>가락시장방향 첫차/막차 5:57 / 23:59  </li>
+                                <li>link : <a href="https://map.naver.com/v5/entry/place/21598318?c=14132704.9119309,4513322.2700407,16,0,0,0,dh" target="_blank">https://map.naver.com/v5/entry/place/</a></li>
+                            </ul>
+                            <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                <i class="fas fa-times mr-1"></i>
+                                닫기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal 5-->
+<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal"><img src="{% static 'assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here-->
+                            <h2 class="text-uppercase">강변역</h2>
+                            <p class="item-intro text-muted">서울특별시 광진구 강변역로 53</p>
+                                <title>강변역 도착정보</title>
+                                <style>
+                                  .table {
+                                    border-collapse: collapse;
+                                    border-top: 3px solid rgb(66, 61, 70);
+                                  }  
+                                  .table th {
+                                    color: rgb(66, 61, 70);
+                                    background: #f0f6f9;
+                                    text-align: center;
+                                  }
+                                  .table th, .table td {
+                                    padding: 10px;
+                                    border: 1px solid #ddd;
+                                  }
+                                  .table th:first-child, .table td:first-child {
+                                    border-left: 0;
+                                  }
+                                  .table th:last-child, .table td:last-child {
+                                    border-right: 0;
+                                  }
+                                  .table tr td:first-child{
+                                    text-align: center;
+                                  }
+                                  .table caption{caption-side: bottom; display: none;}
+                                </style>
+                              
+                                <table class="table">
+                                  <caption>표 제목</caption>
+                                  <tr><th>출발지-도착방면</th><th>도착정보</th><th>비고</th></tr>
+                                  <tr><td>{{direction0_dongseoul}}</td><td>{{arrive0_dongseoul}}}</td><td></td>
+                                  <tr><td>{{direction1_dongseoul}}</td><td>{{arrive1_dongseoul}}</td><td></td>
+                                  <tr><td>{{direction2_dongseoul}}</td><td>{{arrive2_dongseoul}}</td><td></td>
+                                  <tr><td>{{direction3_dongseoul}}</td><td>{{arrive3_dongseoul}}</td><td></td>
+                                  <tr><td>{{direction4_dongseoul}}</td><td>{{arrive4_dongseoul}}</td><td></td>
+                                    <br>
+                                </table>
+
+                            <ul class="list-inline">
+                                <li>문의전화 : 02-6110-2141</li>
+                                <li>환승호선 : 2호선 </li>
+                                <li>구의방향 첫차/막차 5:41 / 23:58  </li>
+                                <li>잠실나루방향 첫차/막차 5:36 / 23:52  </li>
+                                <li>link : <a href="https://map.naver.com/v5/entry/place/21598318?c=14132704.9119309,4513322.2700407,16,0,0,0,dh" target="_blank">https://map.naver.com/v5/entry/place/</a></li>
+                            </ul>
+                            <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                <i class="fas fa-times mr-1"></i>
+                                닫기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 6-->
+<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal"><img src="{% static 'assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here-->
+                            <h2 class="text-uppercase">강남역</h2>
+                            <p class="item-intro text-muted">서울특별기 강남구 강남대로 396 </p>
+                                <title>강남역 도착정보</title>
+                                <style>
+                                  .table {
+                                    border-collapse: collapse;
+                                    border-top: 3px solid rgb(66, 61, 70);
+                                  }  
+                                  .table th {
+                                    color: rgb(66, 61, 70);
+                                    background: #f0f6f9;
+                                    text-align: center;
+                                  }
+                                  .table th, .table td {
+                                    padding: 10px;
+                                    border: 1px solid #ddd;
+                                  }
+                                  .table th:first-child, .table td:first-child {
+                                    border-left: 0;
+                                  }
+                                  .table th:last-child, .table td:last-child {
+                                    border-right: 0;
+                                  }
+                                  .table tr td:first-child{
+                                    text-align: center;
+                                  }
+                                  .table caption{caption-side: bottom; display: none;}
+                                </style>
+                              
+                                <table class="table">
+                                  <caption>표 제목</caption>
+                                  <tr><th>출발지-도착방면</th><th>도착정보</th><th>비고</th></tr>
+                                  <tr><td>{{direction0_gangnam}}</td><td>{{arrive0_gangnam}}</td><td></td>
+                                  <tr><td>{{direction1_gangnam}}</td><td>{{arrive1_gangnam}}</td><td></td>
+                                  <tr><td>{{direction2_gangnam}}</td><td>{{arrive2_gangnam}}</td><td></td>
+                                  <tr><td>{{direction3_gangnam}}</td><td>{{arrive3_gangnam}}</td><td></td>
+                                  <tr><td>{{direction4_gangnam}}</td><td>{{arrive4_gangnam}}</td><td></td>
+                                    <br>
+                                </table>
+
+                            <ul class="list-inline">
+                                <li>문의전화 : 02-6110-2221</li>
+                                <li>환승호선 : 2호선 신분당선 </li>
+                                <li>성수방향 첫차/막차 5:44 / 23:42  </li>
+                                <li>신도림방향 첫차/막차 9:37 / 23:31  </li>
+                                <li>link : <a href="https://map.naver.com/v5/search/%EA%B0%95%EB%82%A8%EC%97%AD/subway-station/222?c=14140183.7974172,4508744.4086436,15,0,0,0,dh" target="_blank">https://map.naver.com/v5/entry/place/</a></li>
+                            </ul>
+                            <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                <i class="fas fa-times mr-1"></i>
+                                닫기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 6-->
+<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal"><img src="{% static 'assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here-->
+                            <h2 class="text-uppercase">용산역</h2>
+                            <p class="item-intro text-muted">서울특별시 용산구 한강대로23길 55</p>
+                                <title>용산역 도착정보</title>
+                                <style>
+                                  .table {
+                                    border-collapse: collapse;
+                                    border-top: 3px solid rgb(66, 61, 70);
+                                  }  
+                                  .table th {
+                                    color: rgb(66, 61, 70);
+                                    background: #f0f6f9;
+                                    text-align: center;
+                                  }
+                                  .table th, .table td {
+                                    padding: 10px;
+                                    border: 1px solid #ddd;
+                                  }
+                                  .table th:first-child, .table td:first-child {
+                                    border-left: 0;
+                                  }
+                                  .table th:last-child, .table td:last-child {
+                                    border-right: 0;
+                                  }
+                                  .table tr td:first-child{
+                                    text-align: center;
+                                  }
+                                  .table caption{caption-side: bottom; display: none;}
+                                </style>
+                              
+                                <table class="table">
+                                  <caption>표 제목</caption>
+                                  <tr><th>출발지-도착방면</th><th>도착정보</th><th>비고</th></tr>
+                                  <tr><td>{{direction0_yongsan}}</td><td>{{arrive0_yongsan}}</td><td></td>
+                                  <tr><td>{{direction1_yongsan}}</td><td>{{arrive1_yongsan}}</td><td></td>
+                                  <tr><td>{{direction2_yongsan}}</td><td>{{arrive2_yongsan}}</td><td></td>
+                                  <tr><td>{{direction3_yongsan}}</td><td>{{arrive3_yongsan}}</td><td></td>
+                                  <tr><td>{{direction4_yongsan}}</td><td>{{arrive4_yongsan}}</td><td></td>
+                                    <br>
+                                </table>
+
+                            <ul class="list-inline">
+                                <li>문의전화 : 1544-7788</li>
+                                <li>환승호선 : 1호선 경의중앙선 ITX </li>
+                                <li>남영방향 첫차/막차 5:14 / 23:53  </li>
+                                <li>동두천방향 첫차/막차 5:25 / 24:52  </li>
+                                <li>link : <a href="https://map.naver.com/v5/entry/place/21598318?c=14132704.9119309,4513322.2700407,16,0,0,0,dh" target="_blank">https://map.naver.com/v5/entry/place/</a></li>
+                            </ul>
+                            <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                <i class="fas fa-times mr-1"></i>
+                                닫기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Bootstrap core JS-->
+<script src="{% static 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js' %}"></script>
+<script src="{% static 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js' %}"></script>
+<!-- Third party plugin JS-->
+<script src="{% static 'https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js' %}"></script>
+<!-- Contact form JS-->
+<script src="{% static 'assets/mail/jqBootstrapValidation.js' %}"></script>
+<script src="{% static 'assets/mail/contact_me.js' %}"></script>
+<!-- Core theme JS-->
+<script src="{% static 'js/scripts.js' %}"></script> 
+
+
+</body>

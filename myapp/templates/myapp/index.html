@@ -1,0 +1,787 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>KNUT(W Team) - Any Travel</title>
+        <link rel="icon" type="image/x-icon" href="{% static 'assets/img/favicon.ico' %}" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="{% static 'https://use.fontawesome.com/releases/v5.13.0/js/all.js' %}" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="{% static 'https://fonts.googleapis.com/css?family=Montserrat:400,700' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' %}" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&display=swap" rel="stylesheet">
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+
+        <!-- Google Font-->
+        <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <!-- <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="{% static 'assets/img/navbar-logo.svg' %}" alt="" /></a>  -->
+                <a class="navbar-brand js-scroll-trigger" href="{% url 'index' %}"><p>Any Travel</p></a> 
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ml-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ml-auto">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">소개</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">축제</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">관광명소</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>  -->
+                        <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>    -->
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'read' %}">자유게시판</a></li>
+                        {% if user.is_active %}
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">로그아웃</a></li>
+                        {% else %}
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'login' %}">로그인</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>      
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Any Travel</div>
+                <div class="masthead-heading text-uppercase">Welcome to Seoul </div>
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">더 보기</a>
+            </div>
+        </header>
+
+        <!-- Services-->
+        <section style="background-color: rgb(255, 253, 245);"class="page-section" id="services">
+            <div style="background-color: rgb(247, 241, 226); margin-top:0%;" class="container">
+                <div class="text-center">
+                    <p style="font-family: 'Black And White Picture', sans-serif; font-size:70px; margin-bottom:0%" class="section-heading text-uppercase">&lt;서울특별시&gt;</p>
+                    <p style="font-family: 'Black And White Picture', sans-serif; font-size:30px;" class="section-subheading text-muted">대한민국의 수도인 서울은 현대적인 고층 빌딩,
+                         첨단 기술의 지하철 <br>, 대중문화와 사찰, 고궁, 노점상이 공존하는 대도시입니다.
+                         전체 인구의 약 21%가 모여 있습니다. </p>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-3">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <p style="font-family: 'Black And White Picture', sans-serif; font-size:50px;" class="my-3">&lt;강동&gt;</p>
+                        <p style="font-family: 'Black And White Picture', sans-serif; font-size:20px;" class="text-muted">서울특별시 남동부에 있는 구. 한강을 사이에 두고 북쪽은 경기도 구리시, 서쪽은 광진구와 마주하고, 남서쪽으로는 송파구, 남동쪽으로는 경기도 하남시와 경계를 이루고 있다. </p>
+                    </div>
+                    <div class="col-md-3">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <p style="font-family: 'Black And White Picture', sans-serif; font-size:50px;" class="my-3">&lt;강서&gt;</p>
+                        <p style="font-family: 'Black And White Picture', sans-serif; font-size:20px;"  class="text-muted">서울특별시의 서남부에 있는 구. 북쪽으로 한강을 경계로 마포구와 경기도 고양시, 동남쪽으로는 한강을 경계로 마포구·경기 고양시와 대하며, 서쪽으로 경기 김포시와 접한다. </p>
+                    </div>                                                         
+                    <div class="col-md-3">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <p style="font-family: 'Black And White Picture', sans-serif; font-size:50px;" class="my-3">&lt;강남&gt;</p>
+                        <p style="font-family: 'Black And White Picture', sans-serif; font-size:20px;" class="text-muted">서울특별시 남동부에 있는 구. 북쪽으로는 한강을 경계로 성동구·광진구, 동쪽으로는 송파구, 서쪽으로는 서초구와 접하고, 남쪽으로는 경기도 성남시와 경계를 이루고 있다.</p>
+                    </div>
+                    <div class="col-md-3">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <p style="font-family: 'Black And White Picture', sans-serif; font-size:50px;" class="my-3">&lt;강북&gt;</p>
+                        <p style="font-family: 'Black And White Picture', sans-serif; font-size:20px;" class="text-muted">서울특별시 북부에 있는 구. 서울특별시 동북단에 위치하며, 구의 동쪽은 노원구·도봉구, 서쪽은 경기도 고양시, 남쪽은 성북구, 북쪽은 경기도 양주시·도봉구와 경계를 이룬다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Carousel -->
+        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" style="padding-top:5z0px;">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+              <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <a href="{% url 'corona' %}"><img src="{% static 'assets/img/carousel/corona.jpg' %}" width=200px; height=600px; class="d-block w-100" alt="..." ></a>
+                <div class="carousel-caption d-none d-md-block">
+                    <a href="{% url 'corona' %}"><p style="font-size:50px; font-weight:bold; color:rgb(7, 131, 231)" >현재 서울의 코로나 상황</p></a>
+                    <a href="{% url 'corona' %}"><p style="font-size:30px; color:rgb(7, 131, 231)">{{today}}</p></a>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <a href="{% url 'weather' %}"><img src="{% static 'assets/img/carousel/weather.jpg' %}" width=200px; height=600px; class="d-block w-100" alt="..." ></a>
+                <div class="carousel-caption d-none d-md-block">
+                    <a href="{% url 'weather' %}"><p style="font-size:50px; font-weight: bold; color:rgb(200, 208, 255)" >오늘 서울의 날씨</p></a>
+                    <a href="{% url 'weather' %}"><p style="font-size:30px; color:rgb(200, 208, 255)">{{today}}</p></a>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <a href="{% url 'subway' %}"><img src="{% static 'assets/img/carousel/subway.jpg' %}" width=200px; height=600px; class="d-block w-100" alt="..." ></a>
+                <div class="carousel-caption d-none d-md-block">
+                    <a href="{% url 'subway' %}"><p style="font-size:50px; font-weight: bold; color:rgb(185, 145, 250); " >현재 서울 주요 지하철역 현황 </p></a>
+                    <a href="{% url 'subway' %}"><p style="font-size:30px; color:rgb(185, 145, 250); padding-bottom:10px">{{today}}</p></a>
+                </div>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        
+
+        <!-- Portfolio Grid-->
+        <section style="background-color: rgb(234, 245, 190);" class="page-section bg-light" id="portfolio">
+            <div class="container">
+                <div class="text-center">
+                    <p style="font-family:'Cookie', cursive; font-size:160px; margin-bottom:-70px;" class="section-heading text-uppercase">Festival</p>
+                    <h3 class="section-subheading text-muted">Most Popular Festival in Seoul</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="{% static 'assets/img/portfolio/01-thumbnail.jpg' %}" alt="" />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">맥주축제</div>
+                                <div class="portfolio-caption-subheading text-muted">서울 광진구</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="{% static 'assets/img/portfolio/02-thumbnail.jpg' %}" alt="" />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">세계불꽃축제</div>
+                                <div class="portfolio-caption-subheading text-muted">영등포구 여의도</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="{% static 'assets/img/portfolio/03-thumbnail.jpg' %}" alt="" />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">벚꽃축제 </div>
+                                <div class="portfolio-caption-subheading text-muted">여의도 석촌호수</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="{% static 'assets/img/portfolio/04-thumbnail.jpg' %}" alt="" />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">서커스축제</div>
+                                <div class="portfolio-caption-subheading text-muted">마포구 문화비축기지</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="{% static 'assets/img/portfolio/05-thumbnail.jpg' %}" alt="" />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">거리예술축제</div>
+                                <div class="portfolio-caption-subheading text-muted">서울 시청~</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="{% static 'assets/img/portfolio/06-thumbnail.jpg' %}" alt="" />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading" style="margin-top:5%">크리스마스 축제</div>
+                                <div class="portfolio-caption-subheading text-muted">서울 청계광장</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About-->
+        <section class="page-section" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <p style="font-size:70px; font-family: 'Cookie', cursive;" class="section-heading text-uppercase">Tourist &nbsp; Attraction</p>
+                    <h3 class="section-subheading text-muted">The best 4 place for sightseeing in Seoul</h3>
+                </div>
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image"><img style='height:100%' class="rounded-circle img-fluid" src="{% static 'assets/img/about/1.JPG' %}" alt=""/></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <p style="font-family:'Black And White Picture', sans-serif; font-size:40px; margin-bottom:-4%;">남대문</p>
+                                <p style="font-family:'Black And White Picture', sans-serif; font-size:21px; " class="subheading">서울특별시 중구 남대문로4가 세종대로 40</p>
+                            </div>
+                            <div class="timeline-body"><p style="font-family:'Black And White Picture', sans-serif;" class="text-muted">대한민국 국보 제1호인 숭례문은 조선의 수도인 한양의 4대문 중의 하나로 남쪽의 대문이다. 600년 전 조선의 역사와 함께 열린 서울의 가장 오랜된 건축물이기도 하다.</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img style='height:100%; width:100%'  class="rounded-circle img-fluid" src="{% static 'assets/img/about/2.JPG' %}" alt="" /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <p style="font-family:'Black And White Picture', sans-serif; font-size:40px; margin-bottom:-4%;">남산공원</p>
+                                <p style="font-family:'Black And White Picture', sans-serif; font-size:23px;" class="subheading">서울특별시 중구 용산2가동 삼일대로 231</p>
+                            </div>
+                            <div class="timeline-body"><p style= "font-family:'Black And White Picture', sans-serif;" class="text-muted">현재 서울특별시에 소재한 공원 중에서 가장 넓은 규모의 공원이다. N서울타워,케이블카 등을 볼수있다. !</p></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image"><img style='height:100%' class="rounded-circle img-fluid" src="{% static 'assets/img/about/3.JPG' %}" alt="" /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <p style="font-family:'Black And White Picture', sans-serif; font-size:40px; margin-bottom:-4%;">청계천</p>
+                                <p style="font-family:'Black And White Picture', sans-serif; font-size:27px;" class="subheading">서울 종로구 창신동</p>
+                            </div>
+                            <div class="timeline-body"><p style= "font-family:'Black And White Picture', sans-serif;" class="text-muted">서울의 한복판인 종로구와 중구와의 경계를 흐르는 하천.</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img style='height:100%' class="rounded-circle img-fluid" src="{% static 'assets/img/about/4.JPG' %}" alt="" /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <p style= "font-family:'Black And White Picture', sans-serif; font-size:40px; margin-bottom:-5%;" >이태원</p>
+                                <p style= "font-family:'Black And White Picture', sans-serif; font-size:25px;"  class="subheading">서울특별시 용산구 이태원동 </p>
+                            </div>
+                            <div class="timeline-body"><p style= "font-family:'Black And White Picture', sans-serif; font-size:15px;"  class="text-muted">많은 외국인들이 찾아오는 명소이고, 최근 '이태원클라쓰'라는 드라마를 촬영한 주 공간이다!</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <h4>
+                                The Best
+                                <br />
+                                Top 4
+                                <br />
+                                Attraction
+                            </h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- Team-->
+        <!-- <section class="page-section bg-light" id="team">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="{% static 'assets/img/team/1.jpg' %}" alt="" />
+                            <h4>Kay Garland</h4>
+                            <p class="text-muted">Lead Designer</p>
+                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="{% static 'assets/img/team/2.jpg' %}" alt="" />
+                            <h4>Larry Parker</h4>
+                            <p class="text-muted">Lead Marketer</p>
+                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="{% static 'assets/img/team/3.jpg' %}" alt="" />
+                            <h4>Diana Petersen</h4>
+                            <p class="text-muted">Lead Developer</p>
+                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>
+                </div>
+            </div>
+        </section>  -->
+        
+        <!-- Clients
+        <div class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid d-block mx-auto" src="{% static 'assets/img/logos/envato.jpg' %}" alt="" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid d-block mx-auto" src="{% static 'assets/img/logos/designmodo.jpg' %}" alt="" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid d-block mx-auto" src="{% static 'assets/img/logos/themeforest.jpg' %}" alt="" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid d-block mx-auto" src="{% static 'assets/img/logos/creative-market.jpg' %}" alt="" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    -->
+        
+        
+        <!-- Contact-->
+
+        <!--
+        <section class="page-section" id="contact">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Contact Us</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+                <form id="contactForm" name="sentMessage" novalidate="novalidate">
+                    <div class="row align-items-stretch mb-5">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input class="form-control" id="name" type="text" placeholder="Your Name *" required="required" data-validation-required-message="Please enter your name." />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" id="email" type="email" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your email address." />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group mb-md-0">
+                                <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required" data-validation-required-message="Please enter your phone number." />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-textarea mb-md-0">
+                                <textarea class="form-control" id="message" placeholder="Your Message *" required="required" data-validation-required-message="Please enter a message."></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div id="success"></div>
+                        <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </section>   -->
+
+
+        
+        <!-- Footer-->
+
+<!--        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-left">Copyright © Your Website 2020</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-right">
+                        <a class="mr-3" href="#!">Privacy Policy</a>
+                        <a href="#!">Terms of Use</a>
+                    </div>
+                </div>
+            </div>
+        </footer> 
+        -->
+
+
+        <!-- Portfolio Modals-->
+        <!-- Modal 1-->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="{% static 'assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">SEOUL BEER FESTIVAL</h2>
+                                    <p class="item-intro text-muted">#비어페스티벌 #서울맥주페스티벌 #서울맥주축제 #맥주축제 #서울축제</p>
+                                    <img class="img-fluid d-block mx-auto" src="{% static 'assets/img/portfolio/01-full.jpg' %}" alt="" />
+                                    <p><h2>서울 맥주축제는 뜨거운 여름<br></h2>
+                                        <br>
+                                        전국민이 사랑하는 맥주와 음악을 접목시킨 초대형 페스티벌로<br>
+                                        
+                                        2020년 8월21일(금)~30일(일)/10일간 서울 광진구 어린이회관 서편 광장에서 열립니다<br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        역대급 라인업이 펼쳐지는 초대형 뮤직페스티벌!<br>
+                                        
+                                        국내 유명가수, 락밴드, 힙합, 인디뮤지션부터 EDM DJ파티까지<br>
+                                        
+                                        다채로운 장르 공연과 함께, 그리고 수많은 맥주와 함께 한 여름밤.<br>
+                                        
+                                        
+                                        
+                                        탁트인 잔디 공원에서 기분 좋게 취하고, 기분 좋게 즐겨보세요!</p>
+                                    <ul class="list-inline">
+                                        <li>Date: 2020년 8월21일(금)~30일</li>
+                                        <li>Place: 서울 어린이회관 서편 광장</li>
+                                        <li>Category: BEER</li>
+                                        <li>link : <a href="	http://beer-festival.co.kr/" target="_blank">http://beer-festival.co.kr/</a></li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                        <i class="fas fa-times mr-1"></i>
+                                        Close Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal 2-->
+        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="{% static 'assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">김포 불꽃축제</h2>
+                                    <p class="item-intro text-muted">#김포시#크루즈#음악#불꽃#겨울#경기도축제#김포축제#불꽃축제#겨울축제#2020년축제#가족과함께#연인과함께#친구와함께</p>
+                                    <img class="img-fluid d-block mx-auto" src="{% static 'assets/img/portfolio/02-full.jpg' %}" alt="" />
+                                    <p><h2>크루즈 위에서 즐기는 가장 가까운 불꽃축제!<br></h2>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        국내 최대규모의 선상불꽃축제로 매주 토요일 저녁<br>
+                                        <br>
+                                        아라김포여객터미널에서 출항합니다.<br>
+                                        <br>
+                                        <br>
+                                        다양한 선상공연과 아라뱃길의 야경 감상<br>
+                                        <br>
+                                        그리고 피날레 '음악불꽃쇼'가 진행됩니다.</p>
+                                    <ul class="list-inline">
+                                        <li>Date: 	2020.01.04 ~ 2020.12.31</li>
+                                        <li>Place: 	경기도 김포시 고촌읍 아라육로270번길 74</li>
+                                        <li>Category: Fireworks</li>
+                                        <li>link : <a href="http://cruisestory.co.kr" target="_blank">http://cruisestory.co.kr</a></li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                        <i class="fas fa-times mr-1"></i>
+                                        Close Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal 3-->
+        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="{% static 'assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">렛츠런파크 서울 야간벚꽃축제</h2>
+                                    <p class="item-intro text-muted">#벚꽃 #꽃구경 #4월축제 #가족끼리 #연인끼리</p>
+                                    <img class="img-fluid d-block mx-auto" src="{% static 'assets/img/portfolio/03-full.jpg' %}" alt="" />
+                                    <p> <h2>밤빛과 벚꽃, 그리고 거리</h2>
+                                        벚꽃과 조명이 함께 하여 아름다운 장관을 연출하는 시간은<br>
+                                        오후 7부터이며, 오후 9시까지 계속됩니다.<br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        뿐만 아니라 이색적 포토존, 청경 기마대와의 사진촬영 등은<br>
+                                        
+                                        평소에 즐길 수 없었던 새로운 경험을 선사할 것입니다.<br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        교통편으로는 지하철 4호선 경마공원역과 연결되어 있으며,<br>
+                                        
+                                        주차공간이 2,000여대로 여유로운 봄을 즐기기에는 안성맞춤인 곳입니다.<br>
+                                        <br>
+                                        <br>
+                                        
+                                        이번 2020 렛츠런파크 서울 야간벚꽃축제는<br>
+                                        
+                                        4월 6일부터 시작해 4월 14일까지 개최되니 오셔서<br>
+                                        
+                                        마음 껏 만끽하시고 돌아가시기 바랍니다.</p>
+                                    <ul class="list-inline">
+                                        <li>Date: 2020.04.06 ~ 2020.04.14</li>
+                                        <li>Place: 4호선 경마공원역</li>
+                                        <li>Category: Cherry Blossom</li>
+                                        <li>link : <a href="http://park.kra.co.kr" target="_blank">http://park.kra.co.kr</a></li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                        <i class="fas fa-times mr-1"></i>
+                                        Close Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal 4-->
+        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="{% static 'assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">서커스 카라반 드라이브 인 2020</h2>
+                                    <p class="item-intro text-muted">서울축제#서울서커스#서커스축제#서커스카라반#서커스#드라이브인축제</p>
+                                    <img class="img-fluid d-block mx-auto" src="{% static 'assets/img/portfolio/04-full.jpg' %}" alt="" />
+                                    <p><h2>가을엔 차타고 즐기는 서커스<br></h2>
+                                        <br>
+                                        <br>
+                                        <서커스 캬라반>은 코로나 19 상황 속에서 <br>
+                                        
+                                        안전하게 공연을 관람할 수 있도록 <br>
+                                        
+                                        관객이 차량에 탑승한 채로 입장, 관람, 퇴장하여 <br>
+                                        
+                                        관객간의 접촉을 제한하는 '드라이브 인 서커스'로 진행합니다.<br>
+                                        
+                                        <br>
+                                        <br>
+                                        ※티켓 수량을 모두 소진한 경우 해당 공연의 정보가 노출되지 않습니다.<br>
+                                        
+                                        ※ 차량당 최대 3인까지 탑승 가능합니다.<br>
+                                        
+                                        <br>
+                                        <br>
+                                        4인부터는 앞좌석에 가로막혀 관람을 위한 시야 확보가 어려운 점과,<br>
+                                        
+                                        코로나19로 인해 야외집객 인원을 100인 미만으로 운영해야 함에 따라<br>
+                                        
+                                        최대한 많은 가족분들에게 관람 기회를 제공하기 위해 부득이하게 차량 1대당 3인 이하로 정하게 되었습니다.<br>
+                                        
+                                        최대 탑승 인원을 초과한 차량은 입장이 불가한 점 양해 부탁드립니다.</p>
+                                    <ul class="list-inline">
+                                        <li>Date: 2020.09.18 ~ 2020.10.04</li>
+                                        <li>Place: 문화비축기지</li>
+                                        <li>Category: Circus</li>
+                                        <li>link : <a href="	https://booking.naver.com/booking/12/bizes/401446/items/3577811" target="_blank">	https://booking.naver.com/booking/12/bizes/401446/items/3577811</a></li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                        <i class="fas fa-times mr-1"></i>
+                                        Close Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal 5-->
+        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="{% static 'assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">서울거리예술축제 2020</h2>
+                                    <p class="item-intro text-muted">#서울예술축제#예술축제#예술제#거리예술제#서울축제#서울#행위예술</p>
+                                    <img class="img-fluid d-block mx-auto" src="{% static 'assets/img/portfolio/05-full.jpg' %}" alt="" />
+                                    <p>축제는 힘이 넘칩니다.<br>
+                                        <br>
+                                        <br>
+
+                                        함께 어울려 웃고, 환호하며 만든 기억은 쉽게 지워지지 않습니다.<br>
+                                        
+                                        거리예술은 광장과 거리, 마을, 생활의 공간을 무대로 바꾸고,<br>
+                                        
+                                        관객과 배우, 일상과 예술 사이의 벽을 허뭅니다.<br>
+                                        
+                                        
+                                        
+                                        같이 만들고, 걷고, 여행하는 일들이 예술이 되며<br>
+                                        
+                                        거리 위에서 모두 배우가 되어 축제의 한 장면으로 남습니다.<br>
+                                        
+                                        
+                                        
+                                        무심히 지나던 장소가 새로워지고,<br>
+                                        
+                                        본 적 없는 풍경이 서울의 가을을 채웁니다.<br>
+                                        
+                                        
+                                        
+                                        오랜 시간 나눌 기억과 공간이 지금·여기,<br>
+                                        
+                                        서울거리예술축제 2020에서 펼쳐집니다.</p>
+                                    <ul class="list-inline">
+                                        <li>Date: 2020.10.01 ~ 2020.10.04</li>
+                                        <li>Place: 광장(서울광장, 청계광장) 거리(청계천로, 세종대로, 무교로, 덕수궁 돌담길) 서울시립미술관, 서울도시건축전시관, 도심재생공간, 시민청</li>
+                                        <li>Category: Street art</li>
+                                        <li>link : <a href="http://www.ssaf.or.kr/" target="_blank">http://www.ssaf.or.kr/</a></li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                        <i class="fas fa-times mr-1"></i>
+                                        Close Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal 6-->
+        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="{% static 'assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">서울크리스마스페스티벌</h2>
+                                    <p class="item-intro text-muted">#서울#크리스마스#겨울#서울축제#크리스마스축제#겨울축제#12월축제#1월축제</p>
+                                    <img class="img-fluid d-block mx-auto" src="{% static 'assets/img/portfolio/06-full.jpg' %}" alt="" />
+                                    <p><h2>산타와 함께 빛의 길을 걷다! </h2> <br>
+
+                                        서울의 아름다운 겨울밤, 아름답고 찬란한 빛의 향연으로 만들어진 겨울동화의 나라, 서울크리스마스페스티벌로 여러분을 초대합니다. <br>
+                                        <br>
+                                        <br>
+                                        
+                                        [ 프로그램]<br>
+                                        
+                                        1. 개막점등식 <br>
+                                        
+                                        - 장소 : 청계광장 <br>
+                                        
+                                        - 시간 : 12월 13일 (금) 17시 ~19시 <br>
+                                        <br>
+                                        - 행사내용 : 식전행사, 점등식, 축하공연 <br>
+                                        <br>
+                                        2. A구간 - 드림Zone<br>
+                                        <br>
+                                        - 행사장소 : 청계광장<br>
+                                        <br>
+                                        - 청계광장에는 트리장식과 어울리는 북유럽풍의 산타마을 조형물이 설치됩니다.<br>
+                                        <br>
+                                        3. B구간 - 환희Zone<br>
+                                        <br>
+                                        - 행사장소 : 청계광장 ~ 모전교<br>
+                                        <br>
+                                        - 청계천의 밤하늘을 화려하게 수놓을 블꽃과 불 모형 장식이 설치됩니다.<br>
+                                        <br>
+                                        4. C구간 - 산타Zone<br>
+                                        <br>
+                                        - 행사장소 : 모전교 ~ 광통교<br>
+                                        <br>
+                                        - 겨울 동화 속 산타 마을에 들어온 듯한 느낌을 주는 구간입니다.<br>
+                                        <br>
+                                        5. D구간 - 축복Zone<br>
+                                        <br>
+                                        - 행사장소 : 광통교 ~ 광교<br>
+                                        <br>
+                                        - 크리스마스의 참 뜻을 되새기고, 예수 탄생을 축하하는 구간으로 천사와 동물들이 아기예수의 탄생을 축하하는 구간입니다.<br>
+                                        <br>
+                                        6. E구간 - 희망Zone<br>
+                                        <br>
+                                        - 행사장소 : 광교 ~ 장통교<br>
+                                        <br>
+                                        - 축제를 알리는 알리는 웅장한 전통 기와 장식을 지나면 사랑이 피어나는 하트 장식의 "꿈의나라"가 펼쳐지는 구간입니다. </p>
+                                    <ul class="list-inline">
+                                        <li>Date: 	2020.12.13 ~ 2021.01.01</li>
+                                        <li>Place: 서울특별시 종로구 서린동 148</li>
+                                        <li>Category: Christmas</li>
+                                        <li>link : <a href="http://www.seoulcf.com/" target="_blank">http://www.seoulcf.com/</a></li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                        <i class="fas fa-times mr-1"></i>
+                                        Close Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <!-- Bootstrap core JS-->
+        <script src="{% static 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js' %}"></script>
+        <script src="{% static 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js' %}"></script>
+        <!-- Third party plugin JS-->
+        <script src="{% static 'https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js' %}"></script>
+        <!-- Contact form JS-->
+        <script src="{% static 'assets/mail/jqBootstrapValidation.js' %}"></script>
+        <script src="{% static 'assets/mail/contact_me.js' %}"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'js/scripts.js' %}"></script> 
+
+    </body>
+</html>

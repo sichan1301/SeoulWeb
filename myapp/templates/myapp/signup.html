@@ -1,0 +1,253 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <title>Any Travel </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+        <link href="{% static 'myapp/index' %}" rel="stylesheet">
+    
+        <link rel="stylesheet" href="{% static 'notary-master/fonts/icomoon/style.css' %}">
+    
+        <link rel="stylesheet" href="{% static 'notary-master/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'notary-master/css/bootstrap-datepicker.css' %}">
+        <link rel="stylesheet" href="{% static 'notary-master/css/jquery.fancybox.min.css' %}">
+        <link rel="stylesheet" href="{% static 'notary-master/css/owl.carousel.min.css' %}">
+        <link rel="stylesheet" href="{% static 'notary-master/css/owl.theme.default.min.css' %}">
+        <link rel="stylesheet" href="{% static 'notary-master/fonts/flaticon/font/flaticon.css' %}">
+        <link rel="stylesheet" href="{% static 'notary-master/css/aos.css' %}">
+    
+        <!-- MAIN CSS -->
+        <link rel="stylesheet" href="{% static 'notary-master/css/style.css' %}">
+    
+    </head>
+
+  <body>
+
+    
+    <div class="site-wrap" id="home-section">
+
+      <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+          <div class="site-mobile-menu-close mt-3">
+            <span class="icon-close2 js-menu-toggle"></span>
+          </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+      </div>
+
+
+
+      <header class="site-navbar site-navbar-target" role="banner">
+
+        <div class="container">
+          <div class="row align-items-center position-relative">
+
+            <div class="col">
+              <div class="site-logo">
+                <a href="{% url 'index' %}"><strong>Any Travel</strong></a>
+              </div>
+            </div>
+
+            <div class="col-9 text-right text-lg-left">
+              
+              <span class="d-inline-block d-lg-none"><a href="#" class=" site-menu-toggle js-menu-toggle py-5 "><span class="icon-menu h3 text-black"></span></a></span>
+
+              <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
+                <ul class="site-menu main-menu js-clone-nav ml-auto ">
+                  <li class="active"><a href="{% url 'signup' %}" class="nav-link">회원가입</a></li>
+                  <li><a href="{% url 'change' %}" class="nav-link">비밀번호 변경</a></li>
+                </ul>
+              </nav>
+            </div>
+
+            
+          </div>
+        </div>
+
+      </header>
+
+      
+      <div class="hero overlay" style="background-image: url({% static 'notary-master/images/korea.jpg' %});">
+        
+        <div class="container">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-lg-12">
+<br><br><br>
+              <div class="row align-items-center justify-content-between">
+
+                <div class="col-lg-7 intro">
+                  <!-- <h1 class="text-white"><strong>Notary Public</strong> &amp; Legal Solutions</h1>
+                  <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis cupiditate deserunt placeat necessitatibus a aliquam corrupti nisi odio aliquid, accusamus.</p> -->
+                </div>
+
+                <div class="col-lg-5">
+                  <form action="{% url 'signup' %}" method="POST" class="book-form">
+                    {% csrf_token %}
+                    <h3>회원가입</h3>
+                    <div class="row align-items-center">
+                      <div class="mb-3 mb-md-4 col-md-12">
+                        <input name="username" type="text" class="form-control" placeholder="아이디">
+                      </div>
+                      <div class="mb-3 mb-md-4 col-md-12">
+                        <input name="password1" type="password" class="form-control" placeholder="비밀번호">
+                      </div>
+                      <div class="mb-3 mb-md-4 col-md-12">
+                        <input name="password2" type="password" class="form-control" placeholder="비밀번호확인">
+                      </div>
+                      <div class="mb-3 mb-md-4 col-md-12">
+                        <input name="lastname" type="text" class="form-control" placeholder="이름">
+                      </div>
+                      <div class="col-md-12">
+                        <input type="submit" value="회원가입" class="btn btn-primary btn-block py-3">
+                      </div>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+  
+
+
+
+      </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- <footer class="site-footer" style="background-image: url('images/hero_bg_footer.jpg')">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3">
+              <h2 class="footer-heading mb-4">About Us</h2>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+              <ul class="list-unstyled social">
+                <li><a href="#"><span class="icon-facebook"></span></a></li>
+                <li><a href="#"><span class="icon-instagram"></span></a></li>
+                <li><a href="#"><span class="icon-twitter"></span></a></li>
+                <li><a href="#"><span class="icon-linkedin"></span></a></li>
+              </ul>
+            </div>
+            <div class="col-lg-8 ml-auto">
+              <div class="row">
+                <div class="col-lg-3">
+                  <h2 class="footer-heading mb-4">Quick Links</h2>
+                  <ul class="list-unstyled">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                  </ul>
+                </div>
+                <div class="col-lg-3">
+                  <h2 class="footer-heading mb-4">Resources</h2>
+                  <ul class="list-unstyled">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                  </ul>
+                </div>
+                <div class="col-lg-3">
+                  <h2 class="footer-heading mb-4">Support</h2>
+                  <ul class="list-unstyled">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                  </ul>
+                </div>
+                <div class="col-lg-3">
+                  <h2 class="footer-heading mb-4">Company</h2>
+                  <ul class="list-unstyled">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-5 mt-5 text-center">
+            <div class="col-md-12">
+              <div class="border-top pt-5">
+                <p>
+
+              Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+  
+              </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </footer> -->
+
+    </div>
+
+    <script src="{% static 'js/jquery-3.3.1.min.  js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.sticky.js' %}"></script>
+    <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
+    <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+    <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+    <script src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>
+    <script src="{% static 'js/aos.js' %}"></script>
+
+    <script src="{% static 'js/main.js' %}"></script>
+
+  </body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <p style="font-family: 'Gugi', cursive; font-size : 40px; text-align:center">회원가입</p>
+<br>
+
+<form  action ="{% url 'signup' %}" method ="POST" 
+style="text-align:center">
+    {% csrf_token %}
+    
+    <h2>아 이 디</h2> 
+    <input name="username" type="text" placeholder="아이디" style="border-radius : 20px;  width:200; height:40px; ">
+    <br><br>
+    <h2>비 밀 번 호</h2>
+    <input name="password1" type="password" placeholder="비밀번호" style="border-radius : 20px;  width:200; height:40px ">
+    <br><br>
+    <h2>비밀번호확인</h2>
+    <input name="password2" type="password" placeholder="비밀번호" style="border-radius : 20px;  width:200; height:40px ">
+    
+    <br><br><br>
+    <a href="{% url 'signupsuccess' %}"></a><input type="submit" value="회원가입">
+</form>  -->
